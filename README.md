@@ -1,16 +1,44 @@
-# React + Vite
+# seym.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal developer website and portfolio landing page for **seym.dev**.
 
-Currently, two official plugins are available:
+This project is designed as a clean public entry point for my work as a frontend developer. It presents my profile, selected projects, technical focus, and ways to get in touch.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Purpose
 
-## React Compiler
+The website serves as a personal portfolio and lightweight studio-style landing page.
+It is not intended to be a reusable template or public product — it is a custom project built for my own professional presence.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Focus
 
-## Expanding the ESLint configuration
+The project is focused on:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- clear presentation of developer profile
+- selected portfolio projects
+- modern frontend UI
+- responsive layout
+- simple and fast user experience
+- clean, maintainable code structure
+
+## Tech Stack
+
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- Motion
+- Vercel
+
+## Project Status
+
+Early development.
+
+## Related Projects
+
+This website is part of my personal portfolio ecosystem.
+Other projects may include standalone React applications, Supabase-based apps, landing pages, and experimental frontend work.
+
+## Author
+
+Konstantin Seym
+https://seym.dev
