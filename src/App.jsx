@@ -1,7 +1,8 @@
 export default function App() {
   return (
     <div>
-      <p>seym.dev</p>
+      <h1>Konstantin Seym</h1>
+      <h2>This site is under development now.</h2>
     </div>
   );
 }
