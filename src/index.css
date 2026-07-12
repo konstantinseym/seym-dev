@@ -28,7 +28,7 @@
 
 @layer base {
   body {
-    @apply bg-palette-eggshell text-palette-space font-sans text-sm;
+    @apply text-palette-space bg-palette-eggshell font-sans text-sm;
 
     @variant lg {
       @apply text-base;
