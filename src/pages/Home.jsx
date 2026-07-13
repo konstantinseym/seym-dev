@@ -8,13 +8,14 @@ import NavBar from "../components/NavBar";
 import { useMeta } from "../context/metaContext";
 
 export default function Home() {
-  const { meta, isLoading } = useMeta();
+  const { meta, isLoading, isError } = useMeta();
 
   const portfolioRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
   if (isLoading) return <p>Loading</p>;
+  if (isError) return <p>Error</p>;
 
   const navElements = [
     <button

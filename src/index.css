@@ -34,4 +34,12 @@
       @apply text-base;
     }
   }
+
+  h2 {
+    @apply text-3xl font-semibold;
+
+    @variant lg {
+      @apply text-4xl;
+    }
+  }
 }
