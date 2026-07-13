@@ -1,14 +1,53 @@
-export default function HomeHero({ siteLogoText, siteLogoSubtitle }) {
+import { motion } from "motion/react";
+
+import ScrollLabel from "../components/ScrollLabel";
+
+export default function HomeHero({
+  siteLogoText,
+  siteLogoSubtitle,
+  heroScrollLabel,
+  navElements,
+}) {
+  const logoLetters = siteLogoText.split("");
+
   return (
-    <header className="flex min-h-screen flex-col items-start justify-center lg:items-center">
+    <header className="relative z-0 flex min-h-screen flex-col items-start justify-center lg:items-center">
       <div className="-translate-x-1/4 pl-[30vw] lg:translate-x-0 lg:pl-0">
         <p className="text-[40px] leading-12 font-bold lg:text-[64px] lg:leading-18">
-          {siteLogoText}
+          {logoLetters.map((letter, index) => (
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0, delay: index / 5 }}
+              key={index}
+            >
+              {letter}
+            </motion.span>
+          ))}
         </p>
-        <h1 className="text-palette-denim text-base font-bold lg:text-2xl">
+        <motion.h1
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, ease: "easeInOut", delay: 2 }}
+          className="text-palette-denim text-base font-bold lg:text-2xl"
+        >
           {siteLogoSubtitle}
-        </h1>
+        </motion.h1>
       </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, ease: "easeInOut", delay: 2 }}
+      >
+        <nav className="absolute inset-0 top-3/5 left-1/5 text-base font-medium lg:left-7/10 lg:text-2xl">
+          <ul className="flex list-disc flex-col gap-4 lg:gap-6">
+            {navElements.map((element, index) => (
+              <li key={index}>{element}</li>
+            ))}
+          </ul>
+        </nav>
+        <ScrollLabel heroScrollLabel={heroScrollLabel} />
+      </motion.div>
     </header>
   );
 }

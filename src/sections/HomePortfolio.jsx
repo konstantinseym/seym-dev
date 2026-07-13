@@ -1,7 +1,7 @@
-export default function HomeContact() {
+export default function HomePortfolio() {
   return (
     <section className="min-h-screen">
-      <div>contact</div>
+      <div>portfolio</div>
     </section>
   );
 }
