@@ -1,58 +1,46 @@
 import { useRef } from "react";
-import { useQuery } from "@tanstack/react-query";
 
 import HomeHero from "../sections/HomeHero";
 import HomePortfolio from "../sections/HomePortfolio";
 import HomeAbout from "../sections/HomeAbout";
 import HomeContact from "../sections/HomeContact";
 import NavBar from "../components/NavBar";
-import { getMeta } from "../api/siteApi";
+import { useMeta } from "../context/metaContext";
 
 export default function Home() {
-  // console.log(JSON.stringify(metaQuery.data));
+  const { meta, isLoading } = useMeta();
 
   const portfolioRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
+
+  if (isLoading) return <p>Loading</p>;
 
   const navElements = [
     <button
       className="cursor-pointer"
       onClick={() => portfolioRef.current.scrollIntoView()}
     >
-      portfolio
+      {meta.portfolio_section_title}
     </button>,
     <button
       className="cursor-pointer"
       onClick={() => aboutRef.current.scrollIntoView()}
     >
-      about
+      {meta.about_section_title}
     </button>,
     <button
       className="cursor-pointer"
       onClick={() => contactRef.current.scrollIntoView()}
     >
-      contact
+      {meta.contact_section_title}
     </button>,
   ];
 
-  const metaQuery = useQuery({
-    queryKey: ["meta"],
-    queryFn: () => getMeta(),
-  });
-
-  if (metaQuery.isPending) return <p>Loading</p>;
-
-  if (metaQuery.isError) return <p>Error</p>;
   return (
     <div className="relative">
       <NavBar elements={navElements} />
-      <HomeHero
-        siteLogoText={metaQuery.data.site_logo_text}
-        siteLogoSubtitle={metaQuery.data.site_logo_subtitle}
-        heroScrollLabel={metaQuery.data.hero_scroll_label}
-        navElements={navElements}
-      />
+      <HomeHero navElements={navElements} />
       <main>
         <div ref={portfolioRef}>
           <HomePortfolio />

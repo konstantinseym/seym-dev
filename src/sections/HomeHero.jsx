@@ -1,17 +1,19 @@
 import { motion } from "motion/react";
 
 import ScrollLabel from "../components/ScrollLabel";
+import { useMeta } from "../context/metaContext";
 
-export default function HomeHero({
-  siteLogoText,
-  siteLogoSubtitle,
-  heroScrollLabel,
-  navElements,
-}) {
-  const logoLetters = siteLogoText.split("");
+export default function HomeHero({ navElements }) {
+  const { meta } = useMeta();
+  const logoLetters = meta.site_logo_text.split("");
 
   return (
-    <header className="relative z-0 flex min-h-screen flex-col items-start justify-center lg:items-center">
+    <motion.header
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ amount: 0.85 }}
+      className="relative z-0 flex min-h-screen flex-col items-start justify-center lg:items-center"
+    >
       <div className="-translate-x-1/4 pl-[30vw] lg:translate-x-0 lg:pl-0">
         <p className="text-[40px] leading-12 font-bold lg:text-[64px] lg:leading-18">
           {logoLetters.map((letter, index) => (
@@ -31,7 +33,7 @@ export default function HomeHero({
           transition={{ duration: 1, ease: "easeInOut", delay: 2 }}
           className="text-palette-denim text-base font-bold lg:text-2xl"
         >
-          {siteLogoSubtitle}
+          {meta.site_logo_subtitle}
         </motion.h1>
       </div>
       <motion.div
@@ -46,8 +48,8 @@ export default function HomeHero({
             ))}
           </ul>
         </nav>
-        <ScrollLabel heroScrollLabel={heroScrollLabel} />
+        <ScrollLabel />
       </motion.div>
-    </header>
+    </motion.header>
   );
 }

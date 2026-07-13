@@ -1,6 +1,10 @@
 import { motion } from "motion/react";
 
-export default function ScrollLabel({ heroScrollLabel }) {
+import { useMeta } from "../context/metaContext";
+
+export default function ScrollLabel() {
+  const { meta } = useMeta();
+
   return (
     <motion.span
       animate={{ y: [0, -4, 4, -2, 2, -1, 1, 0] }}
@@ -12,7 +16,7 @@ export default function ScrollLabel({ heroScrollLabel }) {
       }}
       className="text-palette-denim absolute bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium lg:text-sm"
     >
-      {heroScrollLabel}
+      {meta.hero_scroll_label}
     </motion.span>
   );
 }
