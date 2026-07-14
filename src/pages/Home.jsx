@@ -14,7 +14,7 @@ export default function Home() {
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
-  if (isLoading) return <p>Loading</p>;
+  if (isLoading) return <></>;
   if (isError) return <p>Error</p>;
 
   const navElements = [
