@@ -1,5 +1,6 @@
 import { useRef } from "react";
 
+import Footer from "../sections/Footer";
 import HomeHero from "../sections/HomeHero";
 import HomePortfolio from "../sections/HomePortfolio";
 import HomeAbout from "../sections/HomeAbout";
@@ -53,6 +54,7 @@ export default function Home() {
           <HomeContact />
         </div>
       </main>
+      <Footer navElements={navElements} />
     </div>
   );
 }
