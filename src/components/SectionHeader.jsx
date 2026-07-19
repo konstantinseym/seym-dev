@@ -1,3 +1,3 @@
 export default function SectionHeader({ children }) {
-  return <h2 className="ml-12">{children}</h2>;
+  return <h2 className="mr-4">{children}</h2>;
 }

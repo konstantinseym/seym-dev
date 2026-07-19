@@ -4,46 +4,40 @@ import ScrollLabel from "../components/ScrollLabel";
 import { useMeta } from "../context/metaContext";
 import { HERO_FADEIN_TRANSITION } from "../config/motion.config";
 
-export default function HomeHero({ navElements }) {
+export default function HomeHero() {
   const { meta } = useMeta();
   const logoLetters = meta.site_logo_text.split("");
 
   return (
-    <header className="relative z-0 flex min-h-screen flex-col items-start justify-center lg:items-center">
-      <div className="-translate-x-1/4 pl-[30vw] lg:translate-x-0 lg:pl-0">
-        <p className="text-[40px] leading-12 font-bold lg:text-[64px] lg:leading-18">
-          {logoLetters.map((letter, index) => (
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0, delay: index / 5 }}
-              key={index}
-            >
-              {letter}
-            </motion.span>
-          ))}
-        </p>
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ ...HERO_FADEIN_TRANSITION, delay: 2 }}
-          className="text-palette-denim text-base font-bold lg:text-2xl"
-        >
+    <header className="flex min-h-screen flex-col items-center justify-center">
+      <p className="-tracking-custom text-7xl font-semibold">
+        {logoLetters.map((letter, index) => (
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0, delay: index / 5 }}
+            key={index}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </p>
+      <motion.div
+        initial={{ height: 0 }}
+        animate={{ height: "auto" }}
+        transition={{ ...HERO_FADEIN_TRANSITION, delay: 2 }}
+        className="bg-palette-eggshell flex w-full -translate-y-6 items-center justify-center overflow-hidden"
+      >
+        <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium">
           {meta.site_logo_subtitle}
-        </motion.h1>
-      </div>
+        </h1>
+      </motion.div>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ ...HERO_FADEIN_TRANSITION, delay: 2.5 }}
       >
-        <nav className="absolute inset-0 top-3/5 left-1/5 text-base font-medium lg:left-7/10 lg:text-2xl">
-          <ul className="flex list-disc flex-col gap-4 lg:gap-6">
-            {navElements.map((element, index) => (
-              <li key={index}>{element}</li>
-            ))}
-          </ul>
-        </nav>
         <ScrollLabel />
       </motion.div>
     </header>

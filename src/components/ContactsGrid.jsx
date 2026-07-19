@@ -1,22 +1,17 @@
-import { useMeta } from "../context/metaContext";
-
 export default function ContactsGrid({ contacts }) {
-  const { meta } = useMeta();
-
   return (
-    <div className="flex w-full flex-col px-4 text-sm lg:text-base">
-      <span className="my-4">{meta.contact_direct_label}</span>
-      <div className="grid w-full grid-cols-2 place-items-center gap-4 self-center px-6">
-        {contacts.map((contact) => (
-          <div
-            key={contact.id}
-            className="border-palette-denim flex w-full max-w-64 flex-col rounded-sm border px-3 py-2 text-xs font-medium lg:text-sm"
-          >
-            <span className="text-palette-denim">{contact.label}</span>
-            <span>{contact.value}</span>
+    <div className="mr-8 ml-12 flex flex-col gap-5">
+      {contacts.map((contact, index) => (
+        <div key={contact.id} className="flex justify-between">
+          <span className="tracking-custom">{"/ " + (index + 1)}</span>
+          <div className="flex flex-col items-end">
+            <span className="tracking-custom uppercase">{contact.label}</span>
+            <span className="text-palette-denim text-xs leading-2">
+              {contact.value}
+            </span>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   );
 }

@@ -14,7 +14,7 @@ export default function ScrollLabel() {
         duration: 0.66,
         repeatDelay: 3,
       }}
-      className="text-palette-denim absolute bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium lg:text-sm"
+      className="text-palette-denim tracking-custom absolute bottom-6 left-1/2 -translate-x-1/2 text-xs font-medium"
     >
       {meta.hero_scroll_label}
     </motion.span>

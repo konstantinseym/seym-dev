@@ -8,14 +8,6 @@
   src: url("/fonts/montserrat-latin-wght-normal.woff2") format("woff2");
 }
 
-@font-face {
-  font-family: "Courier Prime";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("/fonts/courier-prime-latin-400-normal.woff2") format("woff2");
-}
-
 @theme {
   --color-palette-eggshell: #f9f5ee;
   --color-palette-denim: #748cab;
@@ -23,7 +15,8 @@
   --color-palette-carbon: #1e1e1e;
 
   --font-sans: "Montserrat", sans-serif;
-  --font-courier: "Courier Prime", monospace;
+
+  --tracking-custom: 10%;
 }
 
 @layer base {
@@ -36,10 +29,6 @@
   }
 
   h2 {
-    @apply text-3xl font-semibold;
-
-    @variant lg {
-      @apply text-4xl;
-    }
+    @apply -tracking-custom text-right text-7xl font-medium;
   }
 }

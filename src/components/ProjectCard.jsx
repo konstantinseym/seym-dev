@@ -1,31 +1,27 @@
 import { useNavigate } from "react-router-dom";
 
-import { useMeta } from "../context/metaContext";
-import Btn from "./Btn";
-
 export default function ProjectCard({ projectData, index }) {
   const navigate = useNavigate();
-  const { meta } = useMeta();
 
   return (
-    <div className="border-palette-denim relative flex w-full max-w-md flex-col items-start border-t border-b px-4 py-6">
-      <span className="text-palette-denim mb-6 text-xs font-medium lg:text-sm">
-        {index}
-      </span>
-      <h2 className="mb-2 text-2xl lg:text-3xl">{projectData.name}</h2>
-      <h3 className="text-palette-denim mb-1 font-medium lg:text-lg">
-        {projectData.description}
-      </h3>
-      <ul className="font-courier ml-4 list-disc text-xs lg:text-sm">
-        {projectData.tags.map((tag, index) => (
-          <li key={index}>{tag}</li>
-        ))}
-      </ul>
-      <div className="absolute right-1/20 bottom-1/20">
-        <Btn onClick={() => navigate("/projects/" + projectData.slug)}>
-          {meta.open_project_label}
-        </Btn>
+    <div
+      className="tracking-custom relative flex h-24 w-full cursor-pointer flex-col items-end justify-between overflow-hidden"
+      onClick={() => navigate("/projects/" + projectData.slug)}
+    >
+      <div className="relative m-1 flex w-4/5 items-center justify-between">
+        <span className="text-palette-eggshell text-sm">/ {index}</span>
+        <h4 className="text-palette-eggshell text-sm uppercase">
+          {projectData.description}
+        </h4>
+        <div className="border-palette-eggshell absolute right-0 bottom-0 w-4/5 border-b" />
       </div>
+
+      <h3 className="text-palette-eggshell text-sm">{projectData.name}</h3>
+
+      <img
+        className="absolute -z-10 w-full -translate-y-1/4 object-cover"
+        src={projectData.images[0]}
+      />
     </div>
   );
 }
