@@ -5,7 +5,7 @@ export default function ProjectCard({ projectData, index }) {
 
   return (
     <div
-      className="tracking-custom relative flex h-24 w-full cursor-pointer flex-col items-end justify-between overflow-hidden"
+      className="tracking-custom relative m-2 flex h-24 cursor-pointer flex-col items-end justify-between overflow-hidden"
       onClick={() => navigate("/projects/" + projectData.slug)}
     >
       <div className="relative m-1 flex w-4/5 items-center justify-between">

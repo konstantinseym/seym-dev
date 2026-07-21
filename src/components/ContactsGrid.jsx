@@ -1,8 +1,19 @@
+import { motion } from "motion/react";
+
+import { ELEMENT_TRANSITION } from "../config/motion.config";
+
 export default function ContactsGrid({ contacts }) {
   return (
     <div className="mr-8 ml-12 flex flex-col gap-5">
       {contacts.map((contact, index) => (
-        <div key={contact.id} className="flex justify-between">
+        <motion.div
+          key={contact.id}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ ...ELEMENT_TRANSITION, delay: index * 0.1 }}
+          viewport={{ amount: 1, once: true }}
+          className="flex justify-between"
+        >
           <span className="tracking-custom">{"/ " + (index + 1)}</span>
           <div className="flex flex-col items-end">
             <span className="tracking-custom uppercase">{contact.label}</span>
@@ -10,7 +21,7 @@ export default function ContactsGrid({ contacts }) {
               {contact.value}
             </span>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );
