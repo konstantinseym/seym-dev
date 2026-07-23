@@ -18,7 +18,7 @@ export default function HomeContact() {
   });
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl flex-col">
+    <section className="mx-auto flex w-full max-w-7xl flex-col">
       <SectionHeader>{meta.contact_section_title}</SectionHeader>
       <SectionContentWrapper>
         {contactsQuery.isPending && null}
@@ -39,6 +39,6 @@ export default function HomeContact() {
           </>
         )}
       </SectionContentWrapper>
-    </div>
+    </section>
   );
 }

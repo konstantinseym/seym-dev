@@ -47,7 +47,7 @@ export default function HomeAbout() {
           <article className="flex flex-col">
             <img
               key="image"
-              className="aspect-video w-9/10 self-end object-cover"
+              className="aspect-video w-9/10 max-w-lg self-end object-cover"
               src={aboutQuery.data.image_url}
             />
             <div key="article" className="mt-12 flex overflow-hidden">
@@ -61,7 +61,7 @@ export default function HomeAbout() {
                       {"/ " + (index + 1) + " " + section.section}
                     </h3>
                     <div className="border-palette-space w-3/4 border-b" />
-                    <p className="mt-4 ml-3 max-w-17/20 text-xs leading-5">
+                    <p className="mt-4 ml-3 max-w-17/20 text-xs leading-5 lg:text-sm">
                       {section.value}
                     </p>
                   </div>

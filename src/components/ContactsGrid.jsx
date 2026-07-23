@@ -17,7 +17,7 @@ export default function ContactsGrid({ contacts }) {
           <span className="tracking-custom">{"/ " + (index + 1)}</span>
           <div className="flex flex-col items-end">
             <span className="tracking-custom uppercase">{contact.label}</span>
-            <span className="text-palette-denim text-xs leading-2">
+            <span className="text-palette-denim text-xs leading-2 lg:text-sm">
               {contact.value}
             </span>
           </div>

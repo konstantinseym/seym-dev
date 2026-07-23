@@ -38,7 +38,7 @@ export default function HomeHero() {
           style={{ opacity: firstScreenOpacity }}
         >
           <motion.p
-            className="-tracking-custom text-7xl font-semibold"
+            className="-tracking-custom text-7xl font-semibold lg:text-8xl"
             style={{ y: logoY }}
           >
             {logoLetters.map((letter, index) => (
@@ -57,9 +57,9 @@ export default function HomeHero() {
             animate={{ height: "auto" }}
             transition={{ ...HERO_FADEIN_TRANSITION, delay: 2 }}
             style={{ y: subtitleY }}
-            className="bg-palette-eggshell flex w-full -translate-y-6 items-center justify-center overflow-hidden"
+            className="bg-palette-eggshell flex w-full -translate-y-6 items-center justify-center overflow-hidden lg:-translate-y-7.25"
           >
-            <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium">
+            <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium lg:text-xl">
               {meta.site_logo_subtitle}
             </h1>
           </motion.div>
@@ -69,7 +69,7 @@ export default function HomeHero() {
           style={{ opacity: secondScreenOpacity }}
           className="absolute top-0 flex h-full w-full flex-col items-center justify-center"
         >
-          <span className="tracking-custom text-2xl uppercase">
+          <span className="tracking-custom text-2xl uppercase lg:text-4xl">
             {meta.hero_anthem}
           </span>
         </motion.div>

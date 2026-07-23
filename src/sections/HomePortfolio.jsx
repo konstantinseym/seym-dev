@@ -52,7 +52,7 @@ export default function HomePortfolio() {
             className="flex flex-col"
           >
             <motion.span
-              className="tracking-custom text-palette-denim my-4 text-center text-xs font-medium"
+              className="tracking-custom text-palette-denim my-4 text-center text-xs font-medium lg:text-sm"
               style={{ opacity: hintOpacity }}
             >
               click card to see project details
