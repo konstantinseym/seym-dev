@@ -4,7 +4,7 @@ import { ELEMENT_TRANSITION } from "../config/motion.config";
 
 export default function ContactsGrid({ contacts }) {
   return (
-    <ul className="mr-8 ml-12 flex flex-col gap-5">
+    <ul className="ml-auto flex w-full max-w-6xl flex-col gap-5 pr-8 pl-12">
       {contacts.map((contact, index) => (
         <motion.li
           key={contact.id}

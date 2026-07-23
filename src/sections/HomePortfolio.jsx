@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 import { getProjectsList } from "../api/portfolioApi";
 import { useMeta } from "../hooks/useMeta";
+import { ELEMENT_TRANSITION } from "../config/motion.config";
 import ScrollDrivenContainer from "../components/ScrollDrivenContainer";
 import SectionContentWrapper from "../components/SectionContentWrapper";
 import SectionHeader from "../components/SectionHeader";
@@ -52,18 +53,24 @@ export default function HomePortfolio() {
             className="flex flex-col"
           >
             <motion.span
-              className="tracking-custom text-palette-denim my-4 text-center text-xs font-medium lg:text-sm"
+              className="tracking-custom text-palette-denim mb-4 text-center text-xs font-medium lg:text-sm"
               style={{ opacity: hintOpacity }}
             >
               {meta.portfolio_hint}
             </motion.span>
-            <ul>
+            <motion.ul className="flex flex-col gap-px">
               {projectsQuery.data.map((project, index) => (
-                <li key={project.id}>
+                <motion.li
+                  key={project.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ ...ELEMENT_TRANSITION, delay: index * 0.1 }}
+                  viewport={{ amount: 1, once: true }}
+                >
                   <ProjectCard projectData={project} index={index + 1} />
-                </li>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         )}
       </SectionContentWrapper>

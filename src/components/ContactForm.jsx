@@ -14,7 +14,7 @@ export default function ContactForm() {
 
   return (
     <form
-      className="bg-palette-space text-palette-eggshell mr-3 mb-12 flex flex-col gap-3 p-6"
+      className="bg-palette-space text-palette-eggshell flex w-9/10 max-w-lg flex-col gap-3 p-6"
       onSubmit={handleFormSubmit}
     >
       <h3 className="text-3xl font-medium lg:text-5xl">{meta.contact_title}</h3>

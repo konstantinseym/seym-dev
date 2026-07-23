@@ -6,6 +6,7 @@ import { getContacts } from "../api/contactApi";
 import { useMeta } from "../hooks/useMeta";
 import ContactForm from "../components/ContactForm";
 import ContactsGrid from "../components/ContactsGrid";
+import Footer from "../components/Footer";
 import SectionContentWrapper from "../components/SectionContentWrapper";
 import SectionHeader from "../components/SectionHeader";
 
@@ -25,7 +26,7 @@ export default function HomeContact() {
         {contactsQuery.isError && <div>Error</div>}
 
         {contactsQuery.isSuccess && (
-          <>
+          <div className="flex flex-col gap-12">
             <motion.div
               key="form"
               initial={{ x: -32, opacity: 0 }}
@@ -36,9 +37,10 @@ export default function HomeContact() {
               <ContactForm />
             </motion.div>
             <ContactsGrid contacts={contactsQuery.data} />
-          </>
+          </div>
         )}
       </SectionContentWrapper>
+      <Footer />
     </section>
   );
 }
