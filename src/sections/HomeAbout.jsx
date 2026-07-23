@@ -44,11 +44,12 @@ export default function HomeAbout() {
         {aboutQuery.isError && <div>Error</div>}
 
         {aboutQuery.isSuccess && (
-          <article className="flex flex-col">
+          <div className="flex flex-col">
             <img
               key="image"
               className="aspect-video w-9/10 max-w-lg self-end object-cover"
               src={aboutQuery.data.image_url}
+              alt=""
             />
             <div key="article" className="mt-12 flex overflow-hidden">
               <motion.div
@@ -68,7 +69,7 @@ export default function HomeAbout() {
                 ))}
               </motion.div>
             </div>
-          </article>
+          </div>
         )}
       </SectionContentWrapper>
     </ScrollDrivenContainer>

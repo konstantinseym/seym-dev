@@ -8,16 +8,14 @@ export default function ProjectCard({ projectData, index }) {
     >
       <div className="relative m-1 flex w-4/5 items-center justify-between">
         <span>/ {index}</span>
-        <h4 className="uppercase">{projectData.description}</h4>
+        <p className="uppercase">{projectData.description}</p>
         <div className="border-palette-eggshell absolute right-0 bottom-0 w-4/5 border-b" />
       </div>
-
       <h3>{projectData.name}</h3>
-
       <img
         className="absolute -z-10 w-full -translate-y-1/4 object-cover"
         src={projectData.images[0]}
-        alt={projectData.name}
+        alt=""
       />
     </Link>
   );

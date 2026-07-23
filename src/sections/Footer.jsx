@@ -12,7 +12,7 @@ export default function Footer() {
         <span className="text-palette-space -tracking-custom text-3xl font-bold lg:text-5xl">
           {meta.site_logo_text}
         </span>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           {meta.policy_label}
         </a>
       </div>

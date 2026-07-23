@@ -55,13 +55,15 @@ export default function HomePortfolio() {
               className="tracking-custom text-palette-denim my-4 text-center text-xs font-medium lg:text-sm"
               style={{ opacity: hintOpacity }}
             >
-              click card to see project details
+              {meta.portfolio_hint}
             </motion.span>
-            {projectsQuery.data.map((project, index) => (
-              <div key={project.id}>
-                <ProjectCard projectData={project} index={index + 1} />
-              </div>
-            ))}
+            <ul>
+              {projectsQuery.data.map((project, index) => (
+                <li key={project.id}>
+                  <ProjectCard projectData={project} index={index + 1} />
+                </li>
+              ))}
+            </ul>
           </motion.div>
         )}
       </SectionContentWrapper>

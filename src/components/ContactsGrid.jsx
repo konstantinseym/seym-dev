@@ -4,9 +4,9 @@ import { ELEMENT_TRANSITION } from "../config/motion.config";
 
 export default function ContactsGrid({ contacts }) {
   return (
-    <div className="mr-8 ml-12 flex flex-col gap-5">
+    <ul className="mr-8 ml-12 flex flex-col gap-5">
       {contacts.map((contact, index) => (
-        <motion.div
+        <motion.li
           key={contact.id}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,8 +21,8 @@ export default function ContactsGrid({ contacts }) {
               {contact.value}
             </span>
           </div>
-        </motion.div>
+        </motion.li>
       ))}
-    </div>
+    </ul>
   );
 }
