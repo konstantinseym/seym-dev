@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 import HintLabel from "../components/HintLabel";
-import { useMeta } from "../context/metaContext";
+import { useMeta } from "../hooks/useMeta";
 import { HERO_FADEIN_TRANSITION } from "../config/motion.config";
 
 export default function HomeHero() {

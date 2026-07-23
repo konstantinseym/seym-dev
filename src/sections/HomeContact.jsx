@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { ELEMENT_TRANSITION } from "../config/motion.config";
 import { getContacts } from "../api/contactApi";
-import { useMeta } from "../context/metaContext";
+import { useMeta } from "../hooks/useMeta";
 import ContactForm from "../components/ContactForm";
 import ContactsGrid from "../components/ContactsGrid";
 import SectionContentWrapper from "../components/SectionContentWrapper";

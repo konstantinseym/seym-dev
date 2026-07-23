@@ -3,16 +3,16 @@ import HomeHero from "../sections/HomeHero";
 import HomePortfolio from "../sections/HomePortfolio";
 import HomeAbout from "../sections/HomeAbout";
 import HomeContact from "../sections/HomeContact";
-import { useMeta } from "../context/metaContext";
+import { useMeta } from "../hooks/useMeta";
 
 export default function Home() {
-  const { isLoading, isError } = useMeta();
+  const metaQuery = useMeta();
 
-  if (isLoading) return <></>;
-  if (isError) return <p>Error</p>;
+  if (metaQuery.isPending) return <></>;
+  if (metaQuery.isError) return <p>Error</p>;
 
   return (
-    <div>
+    <>
       <HomeHero />
       <main>
         <HomePortfolio />
@@ -20,6 +20,6 @@ export default function Home() {
         <HomeContact />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

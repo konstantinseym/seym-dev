@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRef } from "react";
 
 import { getAbout } from "../api/aboutApi";
-import { useMeta } from "../context/metaContext";
+import { useMeta } from "../hooks/useMeta";
 import ScrollDrivenContainer from "../components/ScrollDrivenContainer";
 import SectionContentWrapper from "../components/SectionContentWrapper";
 import SectionHeader from "../components/SectionHeader";

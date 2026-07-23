@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import SendIcon from "./SendIcon";
-import { useMeta } from "../context/metaContext";
+import { useMeta } from "../hooks/useMeta";
 
 export default function ContactForm() {
   const { meta } = useMeta();

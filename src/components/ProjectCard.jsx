@@ -1,12 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ProjectCard({ projectData, index }) {
-  const navigate = useNavigate();
-
   return (
-    <div
-      className="tracking-custom text-palette-eggshell relative m-2 flex h-24 max-w-5xl cursor-pointer flex-col items-end justify-between overflow-hidden lg:m-4"
-      onClick={() => navigate("/projects/" + projectData.slug)}
+    <Link
+      className="tracking-custom text-palette-eggshell relative m-2 flex h-24 max-w-5xl flex-col items-end justify-between overflow-hidden lg:m-4"
+      to={"/projects/" + projectData.slug}
     >
       <div className="relative m-1 flex w-4/5 items-center justify-between">
         <span>/ {index}</span>
@@ -19,7 +17,8 @@ export default function ProjectCard({ projectData, index }) {
       <img
         className="absolute -z-10 w-full -translate-y-1/4 object-cover"
         src={projectData.images[0]}
+        alt={projectData.name}
       />
-    </div>
+    </Link>
   );
 }
