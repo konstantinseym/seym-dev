@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
 import { getProject } from "../api/portfolioApi";
+import ScreenError from "../components/ScreenError";
 import ScreenLoader from "../components/ScreenLoader";
 
 export default function Project() {
@@ -28,18 +29,28 @@ export default function Project() {
   return (
     <>
       {projectQuery.isPending && <ScreenLoader />}
+      {projectQuery.isError && (
+        <ScreenError handleReload={projectQuery.refetch} />
+      )}
       {projectQuery.isSuccess && (
         <motion.section
           variants={parentVariants}
           initial="hidden"
           animate="visible"
-          className="mx-auto flex min-h-screen max-w-7xl flex-col items-start gap-9 pt-9"
+          className="mx-auto flex min-h-screen max-w-7xl flex-col items-start gap-9 py-9"
         >
-          <motion.img
+          <motion.div
             variants={childrenVariants}
-            className="aspect-video w-9/10 max-w-lg self-end object-cover opacity-90"
-            src={projectQuery.data.images[0]}
-          />
+            className="relative overflow-hidden"
+          >
+            <img
+              className="ml-auto aspect-video w-9/10 max-w-lg object-cover opacity-90"
+              src={projectQuery.data.images[0]}
+            />
+            <h1 className="text-palette-eggshell absolute right-0 bottom-0 text-4xl leading-6 font-medium">
+              {projectQuery.data.name}
+            </h1>
+          </motion.div>
           <motion.div variants={childrenVariants}>
             <h2 className="tracking-custom ml-3 text-left text-sm font-normal uppercase lg:text-base">
               / 1 overview
