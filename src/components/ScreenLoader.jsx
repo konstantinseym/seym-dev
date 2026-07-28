@@ -21,7 +21,7 @@ export default function ScreenLoader() {
               repeatDelay: 0.5,
             }}
             key={dot}
-            className="bg-palette-space h-4 w-4 rounded-full"
+            className="bg-palette-eggshell h-2 w-2 rounded-full"
           />
         ))}
       </motion.span>
