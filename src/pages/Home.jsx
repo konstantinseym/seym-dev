@@ -37,6 +37,8 @@ function HomeContent({ meta }) {
     offset: ["start start", "end end"],
   });
 
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, -64]);
+
   const firstScreenOpacity = useTransform(
     scrollYProgress,
     [0, 0.2, 1],
@@ -148,8 +150,21 @@ function HomeContent({ meta }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={HERO_FADEIN_TRANSITION}
-          className="sticky top-0 h-screen bg-[linear-gradient(to_bottom,var(--color-palette-eggshell)_0%,var(--color-palette-eggshell)_60%,rgba(0,0,0,0.5)_90%,#000_100%),url('/img/bg.avif')] bg-cover bg-center bg-no-repeat"
+          className="sticky top-0 h-screen"
         >
+          <motion.div
+            style={{ y: bgY }}
+            className="absolute inset-0 overflow-hidden"
+          >
+            <img
+              src={meta.hero_bg_url}
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ y: bgY }}
+            />
+            <div className="pointer-events-none absolute inset-0 h-full w-full bg-[linear-gradient(to_bottom,var(--color-palette-eggshell)_0%,var(--color-palette-eggshell)_60%,rgba(0,0,0,0.5)_90%,#000_100%)]" />
+          </motion.div>
+
           <motion.header
             className="absolute top-0 flex h-full w-full flex-col items-center justify-center"
             style={{
@@ -216,23 +231,21 @@ function HomeContent({ meta }) {
                   className="tracking-custom col-start-1 row-start-1 text-4xl uppercase"
                   style={{ opacity: firstTextOpacity, y: firstTextY }}
                 >
-                  welcome
+                  {meta.hero_intro_label}
                 </motion.span>
 
                 <motion.p
                   className="col-start-1 row-start-1 text-xl leading-10 lg:text-3xl"
                   style={{ opacity: secondTextOpacity, y: secondTextY }}
                 >
-                  seym.dev is an independent creative studio creating
-                  distinctive identities and digital experiences.
+                  {meta.hero_intro_description}
                 </motion.p>
 
                 <motion.span
                   className="text-palette-denim col-start-1 row-start-1"
                   style={{ opacity: thirdTextOpacity, x: thirdTextX }}
                 >
-                  explore selected projects, discover the studio, and find
-                  everything you need to get in touch.
+                  {meta.hero_intro_prompt}
                 </motion.span>
               </div>
             </div>
@@ -250,7 +263,7 @@ function HomeContent({ meta }) {
               style={{ y: navHintY }}
               className="tracking-custom text-palette-denim"
             >
-              explore more info about...
+              {meta.hero_nav_label}
             </motion.span>
 
             <motion.nav
