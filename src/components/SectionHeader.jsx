@@ -1,3 +1,8 @@
 export default function SectionHeader({ children }) {
-  return <h2 className="mr-4">{children}</h2>;
+  return (
+    <div className="flex flex-col items-center justify-center gap-3 py-6">
+      <h2 className="">{children}</h2>
+      <div className="border-palette-space/50 w-9/10 border-b" />
+    </div>
+  );
 }

@@ -9,28 +9,16 @@ import {
 } from "motion/react";
 
 import { useMeta } from "../hooks/useMeta";
-import { HERO_FADEIN_TRANSITION } from "../config/motion.config";
+import { PAGE_FADEIN_TRANSITION } from "../config/motion.config";
 import Footer from "../components/Footer";
 import HintLabel from "../components/HintLabel";
-import ScreenLoader from "../components/ScreenLoader";
-import ScreenError from "../components/ScreenError";
 
 export default function Home() {
   const metaQuery = useMeta();
 
-  if (metaQuery.isPending) return <ScreenLoader />;
-
-  if (metaQuery.isError) {
-    return <ScreenError handleReload={metaQuery.refetch} />;
-  }
-
-  return <HomeContent meta={metaQuery.data} />;
-}
-
-function HomeContent({ meta }) {
   const pageRef = useRef(null);
 
-  const logoLetters = meta.site_logo_text.split("");
+  const logoLetters = metaQuery.data.site_logo_text.split("");
 
   const { scrollYProgress } = useScroll({
     target: pageRef,
@@ -123,7 +111,7 @@ function HomeContent({ meta }) {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.3,
+        staggerChildren: 0.15,
       },
     },
   };
@@ -137,7 +125,7 @@ function HomeContent({ meta }) {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.3,
         ease: "easeOut",
       },
     },
@@ -149,7 +137,7 @@ function HomeContent({ meta }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={HERO_FADEIN_TRANSITION}
+          transition={PAGE_FADEIN_TRANSITION}
           className="sticky top-0 h-screen"
         >
           <motion.div
@@ -157,7 +145,7 @@ function HomeContent({ meta }) {
             className="absolute inset-0 overflow-hidden"
           >
             <img
-              src={meta.hero_bg_url}
+              src={metaQuery.data.hero_bg_url}
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               style={{ y: bgY }}
@@ -195,14 +183,14 @@ function HomeContent({ meta }) {
               initial={{ height: 0 }}
               animate={{ height: "auto" }}
               transition={{
-                ...HERO_FADEIN_TRANSITION,
+                ...PAGE_FADEIN_TRANSITION,
                 delay: 3,
               }}
               style={{ y: subtitleY }}
               className="bg-palette-eggshell flex w-full -translate-y-6 items-center justify-center overflow-hidden lg:-translate-y-7.25"
             >
-              <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium lg:text-xl">
-                {meta.site_logo_subtitle}
+              <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium lg:text-xl lg:leading-5">
+                {metaQuery.data.site_logo_subtitle}
               </h1>
             </motion.div>
 
@@ -210,11 +198,11 @@ function HomeContent({ meta }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
-                ...HERO_FADEIN_TRANSITION,
+                ...PAGE_FADEIN_TRANSITION,
                 delay: 3.5,
               }}
             >
-              <HintLabel label={meta.hero_scroll_label} />
+              <HintLabel label={metaQuery.data.hero_scroll_label} />
             </motion.div>
           </motion.header>
 
@@ -228,24 +216,24 @@ function HomeContent({ meta }) {
             <div className="relative flex w-full max-w-4xl items-center justify-center">
               <div className="tracking-custom relative grid w-full place-items-center px-12 text-center">
                 <motion.span
-                  className="tracking-custom col-start-1 row-start-1 text-4xl uppercase"
+                  className="tracking-custom col-start-1 row-start-1 text-4xl uppercase lg:text-5xl"
                   style={{ opacity: firstTextOpacity, y: firstTextY }}
                 >
-                  {meta.hero_intro_label}
+                  {metaQuery.data.hero_intro_label}
                 </motion.span>
 
                 <motion.p
                   className="col-start-1 row-start-1 text-xl leading-10 lg:text-3xl"
                   style={{ opacity: secondTextOpacity, y: secondTextY }}
                 >
-                  {meta.hero_intro_description}
+                  {metaQuery.data.hero_intro_description}
                 </motion.p>
 
                 <motion.span
                   className="text-palette-denim col-start-1 row-start-1"
                   style={{ opacity: thirdTextOpacity, x: thirdTextX }}
                 >
-                  {meta.hero_intro_prompt}
+                  {metaQuery.data.hero_intro_prompt}
                 </motion.span>
               </div>
             </div>
@@ -263,14 +251,14 @@ function HomeContent({ meta }) {
               style={{ y: navHintY }}
               className="tracking-custom text-palette-denim"
             >
-              {meta.hero_nav_label}
+              {metaQuery.data.hero_nav_label}
             </motion.span>
 
             <motion.nav
               initial="hidden"
               animate={navigationControls}
               variants={navigationVariants}
-              className="flex w-full max-w-4xl flex-col gap-9 pr-18 pl-9 text-xl"
+              className="flex w-full max-w-4xl flex-col gap-9 pr-18 pl-9 text-xl lg:text-2xl"
             >
               <motion.div
                 className="flex justify-between"
@@ -278,7 +266,7 @@ function HomeContent({ meta }) {
               >
                 <Link to="/portfolio">
                   <span className="uppercase">
-                    {meta.portfolio_section_title}
+                    {metaQuery.data.portfolio_section_title}
                   </span>
                 </Link>
                 <span className="text-palette-denim text-xs lg:text-sm">
@@ -291,7 +279,9 @@ function HomeContent({ meta }) {
                 variants={linkVariants}
               >
                 <Link to="/about">
-                  <span className="uppercase">{meta.about_section_title}</span>
+                  <span className="uppercase">
+                    {metaQuery.data.about_section_title}
+                  </span>
                 </Link>
                 <span className="text-palette-denim text-xs lg:text-sm">
                   / 02
@@ -304,7 +294,7 @@ function HomeContent({ meta }) {
               >
                 <Link to="/contact">
                   <span className="uppercase">
-                    {meta.contact_section_title}
+                    {metaQuery.data.contact_section_title}
                   </span>
                 </Link>
                 <span className="text-palette-denim text-xs lg:text-sm">

@@ -29,10 +29,10 @@
   }
 
   h2 {
-    @apply -tracking-custom text-right text-7xl font-medium;
+    @apply tracking-custom text-5xl font-medium uppercase opacity-50;
 
     @variant lg {
-      @apply text-8xl;
+      @apply text-7xl;
     }
   }
 }
