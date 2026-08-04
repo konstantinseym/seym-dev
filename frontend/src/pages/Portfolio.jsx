@@ -18,24 +18,9 @@ export default function Portfolio() {
 
   return (
     <section className="flex min-h-screen w-full flex-col items-center bg-white py-24">
-      <SectionHeader>{metaQuery.data.portfolio_section_title}</SectionHeader>
+      <SectionHeader>{metaQuery.data.portfolioSectionTitle}</SectionHeader>
 
       <ul className="flex flex-col gap-16 px-8 lg:grid lg:grid-cols-2 lg:px-16">
-        {portfolioQuery.data.map((project) => (
-          <li key={project.id}>
-            <ProjectCard projectData={project} />
-          </li>
-        ))}
-        {portfolioQuery.data.map((project) => (
-          <li key={project.id}>
-            <ProjectCard projectData={project} />
-          </li>
-        ))}
-        {portfolioQuery.data.map((project) => (
-          <li key={project.id}>
-            <ProjectCard projectData={project} />
-          </li>
-        ))}
         {portfolioQuery.data.map((project) => (
           <li key={project.id}>
             <ProjectCard projectData={project} />

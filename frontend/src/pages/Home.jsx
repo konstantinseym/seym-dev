@@ -18,7 +18,7 @@ export default function Home() {
 
   const pageRef = useRef(null);
 
-  const logoLetters = metaQuery.data.site_logo_text.split("");
+  const logoLetters = metaQuery.data.siteLogoText.split("");
 
   const { scrollYProgress } = useScroll({
     target: pageRef,
@@ -145,7 +145,7 @@ export default function Home() {
             className="absolute inset-0 overflow-hidden"
           >
             <img
-              src={metaQuery.data.hero_bg_url}
+              src="/images/bg.jpg"
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
               style={{ y: bgY }}
@@ -190,7 +190,7 @@ export default function Home() {
               className="bg-palette-eggshell flex w-full -translate-y-6 items-center justify-center overflow-hidden lg:-translate-y-7.25"
             >
               <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium lg:text-xl lg:leading-5">
-                {metaQuery.data.site_logo_subtitle}
+                {metaQuery.data.siteLogoSubtitle}
               </h1>
             </motion.div>
 
@@ -202,7 +202,7 @@ export default function Home() {
                 delay: 3.5,
               }}
             >
-              <HintLabel label={metaQuery.data.hero_scroll_label} />
+              <HintLabel label={metaQuery.data.heroScrollLabel} />
             </motion.div>
           </motion.header>
 
@@ -219,21 +219,21 @@ export default function Home() {
                   className="tracking-custom col-start-1 row-start-1 text-4xl uppercase lg:text-5xl"
                   style={{ opacity: firstTextOpacity, y: firstTextY }}
                 >
-                  {metaQuery.data.hero_intro_label}
+                  {metaQuery.data.heroIntroLabel}
                 </motion.span>
 
                 <motion.p
                   className="col-start-1 row-start-1 text-xl leading-10 lg:text-3xl"
                   style={{ opacity: secondTextOpacity, y: secondTextY }}
                 >
-                  {metaQuery.data.hero_intro_description}
+                  {metaQuery.data.heroIntroDescription}
                 </motion.p>
 
                 <motion.span
                   className="text-palette-denim col-start-1 row-start-1"
                   style={{ opacity: thirdTextOpacity, x: thirdTextX }}
                 >
-                  {metaQuery.data.hero_intro_prompt}
+                  {metaQuery.data.heroIntroPrompt}
                 </motion.span>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function Home() {
               style={{ y: navHintY }}
               className="tracking-custom text-palette-denim"
             >
-              {metaQuery.data.hero_nav_label}
+              {metaQuery.data.heroNavLabel}
             </motion.span>
 
             <motion.nav
@@ -266,7 +266,7 @@ export default function Home() {
               >
                 <Link to="/portfolio">
                   <span className="uppercase">
-                    {metaQuery.data.portfolio_section_title}
+                    {metaQuery.data.portfolioSectionTitle}
                   </span>
                 </Link>
                 <span className="text-palette-denim text-xs lg:text-sm">
@@ -280,7 +280,7 @@ export default function Home() {
               >
                 <Link to="/about">
                   <span className="uppercase">
-                    {metaQuery.data.about_section_title}
+                    {metaQuery.data.aboutSectionTitle}
                   </span>
                 </Link>
                 <span className="text-palette-denim text-xs lg:text-sm">
@@ -294,7 +294,7 @@ export default function Home() {
               >
                 <Link to="/contact">
                   <span className="uppercase">
-                    {metaQuery.data.contact_section_title}
+                    {metaQuery.data.contactSectionTitle}
                   </span>
                 </Link>
                 <span className="text-palette-denim text-xs lg:text-sm">

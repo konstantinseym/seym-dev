@@ -1,9 +1,5 @@
-import { supabase } from "../lib/supabaseClient";
+import { payloadFetch } from "./payloadClient";
 
-export async function getMeta() {
-  const { data, error } = await supabase.rpc("get_meta");
-
-  if (error) throw error;
-
-  return data;
+export function getMeta() {
+  return payloadFetch("/api/globals/site-settings");
 }

@@ -7,18 +7,25 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { SiteSettings } from './globals/SiteSettings'
+import { Contacts } from './globals/Contacts'
+import { About } from './globals/About'
+import { Projects } from './collections/Projects'
+import { Leads } from './collections/Leads'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  cors: [process.env.FRONTEND_URL || 'http://localhost:5173'],
   admin: {
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Projects, Leads],
+  globals: [SiteSettings, Contacts, About],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

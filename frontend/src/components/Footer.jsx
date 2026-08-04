@@ -10,15 +10,15 @@ export default function Footer() {
       </span>
       <div className="text-palette-eggshell/50 tracking-custom flex flex-col items-center gap-4 pt-12 pb-6 uppercase">
         <a
-          href={"mailto:" + meta.owner_email}
+          href={"mailto:" + meta.ownerEmail}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {meta.owner_email}
+          {meta.ownerEmail}
         </a>
         <div className="border-palette-eggshell/50 w-xs border-b" />
         <a href="#" target="_blank" rel="noopener noreferrer">
-          {meta.policy_label}
+          {meta.policyLabel}
         </a>
       </div>
     </div>

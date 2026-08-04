@@ -1,5 +1,3 @@
-import { supabase } from "../lib/supabaseClient";
-
 export async function getPortfolio() {
   const { data, error } = await supabase.rpc("get_projects_list");
 
