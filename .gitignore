@@ -1,50 +1,85 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# =========================
+# Dependencies
+# =========================
+node_modules/
+.pnp
 .pnp.js
 .yarn/install-state.gz
 
-/.idea/*
-!/.idea/runConfigurations
+# =========================
+# Build outputs (Vite / Next.js)
+# =========================
+dist/
+dist-ssr/
+.next/
+out/
+build/
 
-# testing
-/coverage
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
 
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# =========================
+# Logs
+# =========================
+logs/
+*.log
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# =========================
+# OS / System
+# =========================
+.DS_Store
 
-# vercel
-.vercel
+# =========================
+# Editor / IDE
+# =========================
+.vscode/*
+!.vscode/extensions.json
+.idea/*
+!.idea/runConfigurations/
 
-# typescript
+# =========================
+# Runtime / temp
+# =========================
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# Coverage / testing
+# =========================
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# =========================
+# Cache
+# =========================
+.npm
+.eslintcache
+.stylelintcache
 *.tsbuildinfo
+
+# =========================
+# Deployment
+# =========================
+.vercel/
+
+# =========================
+# Misc
+# =========================
+*.tgz
+*.pem
 next-env.d.ts
-
-.env
-
-/media
-
-# Playwright
-node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+media/
