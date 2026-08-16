@@ -23,15 +23,15 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={FAST_TRANSITION}
       className="tracking-custom flex max-w-lg flex-col gap-6 px-9 py-5"
     >
       <div className="grid grid-cols-[auto_1fr] items-center gap-x-9 gap-y-2">
         <span className="text-palette-denim text-xs lg:text-sm">/ {project.id}</span>
-        <Link href={'/project/' + project.slug}>
+        <Link href={'/projects/' + project.slug}>
           <h3 className="text-xl font-medium uppercase lg:text-2xl">{project.name}</h3>
         </Link>
         <span className="text-palette-denim col-start-2 text-xs lg:text-sm">
@@ -39,13 +39,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </span>
       </div>
 
-      <Image
-        src={image.url}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-        className="border-palette-carbon rounded-lg border"
-      />
+      <div className="bg-white px-3 py-2">
+        <Image src={image.url} alt={image.alt} width={image.width} height={image.height} />
+      </div>
     </motion.article>
   )
 }
