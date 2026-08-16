@@ -1,19 +1,27 @@
-import React from 'react'
-import './styles.css'
+import localFont from 'next/font/local'
+import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+import './globals.css'
+
+const myFont = localFont({
+  src: '../../assets/fonts/montserrat-latin-wght-normal.woff2',
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  title: 'Title',
+  description: 'Description',
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
+type FrontendLayoutProps = {
+  children: ReactNode
+}
 
+export default function FrontendLayout({ children }: FrontendLayoutProps) {
   return (
     <html lang="en">
-      <body>
-        <main>{children}</main>
-      </body>
+      <body className={myFont.className}>{children}</body>
     </html>
   )
 }

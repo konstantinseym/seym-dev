@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-palette-eggshell: #f9f5ee;
+  --color-palette-denim: #748cab;
+  --color-palette-space: #1d2d44;
+  --color-palette-carbon: #1e1e1e;
+
+  --tracking-custom: 0.1em;
+}
+
+@layer base {
+  body {
+    @apply text-palette-space bg-black text-sm;
+
+    @variant lg {
+      @apply text-base;
+    }
+  }
+
+  h2 {
+    @apply tracking-custom text-5xl font-medium uppercase opacity-50;
+
+    @variant lg {
+      @apply text-7xl;
+    }
+  }
+}
