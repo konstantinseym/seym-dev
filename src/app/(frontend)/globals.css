@@ -17,12 +17,4 @@
       @apply text-base;
     }
   }
-
-  h2 {
-    @apply tracking-custom text-5xl font-medium uppercase opacity-50;
-
-    @variant lg {
-      @apply text-7xl;
-    }
-  }
 }

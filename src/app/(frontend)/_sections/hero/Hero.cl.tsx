@@ -216,21 +216,21 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
             className="flex w-full max-w-4xl flex-col gap-9 pr-18 pl-9 text-xl lg:text-2xl"
           >
             <motion.div className="flex justify-between" variants={linkVariants}>
-              <Link href="/portfolio">
+              <Link href="#portfolio">
                 <span className="uppercase">{siteSettings.portfolioSectionTitle}</span>
               </Link>
               <span className="text-palette-denim text-xs lg:text-sm">/ 01</span>
             </motion.div>
 
             <motion.div className="flex justify-between" variants={linkVariants}>
-              <Link href="/about">
+              <Link href="#about">
                 <span className="uppercase">{siteSettings.aboutSectionTitle}</span>
               </Link>
               <span className="text-palette-denim text-xs lg:text-sm">/ 02</span>
             </motion.div>
 
             <motion.div className="flex justify-between" variants={linkVariants}>
-              <Link href="/contact">
+              <Link href="#contact">
                 <span className="uppercase">{siteSettings.contactSectionTitle}</span>
               </Link>
               <span className="text-palette-denim text-xs lg:text-sm">/ 03</span>
