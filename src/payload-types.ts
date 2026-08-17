@@ -186,7 +186,10 @@ export interface Project {
   primaryImage: number | Media;
   secondaryImage: number | Media;
   overview: string;
-  stack: string;
+  stack: {
+    value: string;
+    id?: string | null;
+  }[];
   updatedAt: string;
   createdAt: string;
 }
@@ -335,7 +338,12 @@ export interface ProjectsSelect<T extends boolean = true> {
   primaryImage?: T;
   secondaryImage?: T;
   overview?: T;
-  stack?: T;
+  stack?:
+    | T
+    | {
+        value?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }

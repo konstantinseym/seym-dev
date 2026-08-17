@@ -98,7 +98,7 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
   } satisfies Variants
 
   return (
-    <div ref={pageRef} className="relative h-[800vh]">
+    <div ref={pageRef} className="relative h-[400vh]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

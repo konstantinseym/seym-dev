@@ -73,8 +73,20 @@ export const Projects: CollectionConfig = {
     },
     {
       name: 'stack',
-      type: 'textarea',
+      type: 'array',
       required: true,
+      minRows: 1,
+      labels: {
+        singular: 'Tech',
+        plural: 'Techs',
+      },
+      fields: [
+        {
+          name: 'value',
+          type: 'text',
+          required: true,
+        },
+      ],
     },
   ],
 }
