@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 
@@ -8,6 +10,63 @@ type ProjectPageProps = {
   params: Promise<{
     slug: string
   }>
+}
+
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params
+  const project = await getProject(slug)
+
+  if (!project) {
+    notFound()
+  }
+
+  const primaryImage = typeof project.primaryImage === 'number' ? null : project.primaryImage
+  const socialTitle = project.name.toLocaleLowerCase() + ' - seym.dev'
+  const projectUrl = `/projects/${project.slug}`
+
+  const socialImages =
+    primaryImage?.url && primaryImage.width && primaryImage.height
+      ? [
+          {
+            url: primaryImage.url,
+            width: primaryImage.width,
+            height: primaryImage.height,
+            alt: primaryImage.alt,
+          },
+        ]
+      : [
+          {
+            url: '/social-preview.png',
+            width: 1200,
+            height: 630,
+            alt: 'seym.dev — Web Design & Development',
+          },
+        ]
+
+  return {
+    title: {
+      absolute: socialTitle,
+    },
+    description: project.description,
+    alternates: {
+      canonical: projectUrl,
+    },
+    openGraph: {
+      title: socialTitle,
+      description: project.description,
+      url: projectUrl,
+      siteName: 'seym.dev',
+      locale: 'en_US',
+      type: 'website',
+      images: socialImages,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: socialTitle,
+      description: project.description,
+      images: socialImages,
+    },
+  }
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

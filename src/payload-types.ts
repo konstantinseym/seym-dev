@@ -95,11 +95,13 @@ export interface Config {
     about: About;
     contacts: Contact;
     'site-settings': SiteSetting;
+    'privacy-policy': PrivacyPolicy;
   };
   globalsSelect: {
     about: AboutSelect<false> | AboutSelect<true>;
     contacts: ContactsSelect<false> | ContactsSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+    'privacy-policy': PrivacyPolicySelect<false> | PrivacyPolicySelect<true>;
   };
   locale: null;
   widgets: {
@@ -455,6 +457,16 @@ export interface SiteSetting {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy-policy".
+ */
+export interface PrivacyPolicy {
+  id: number;
+  content: string;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about_select".
  */
 export interface AboutSelect<T extends boolean = true> {
@@ -509,6 +521,16 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   contactThanksLabel?: T;
   ownerEmail?: T;
   policyLabel?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy-policy_select".
+ */
+export interface PrivacyPolicySelect<T extends boolean = true> {
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

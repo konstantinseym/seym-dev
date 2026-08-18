@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { getSiteSettings } from '@/data/getSiteSettings'
 
 export default async function Footer() {
@@ -13,9 +15,7 @@ export default async function Footer() {
           {siteSettings.ownerEmail}
         </a>
         <div className="border-palette-eggshell/50 w-xs border-b" />
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          {siteSettings.policyLabel}
-        </a>
+        <Link href="/privacy-policy">{siteSettings.policyLabel}</Link>
       </div>
     </footer>
   )

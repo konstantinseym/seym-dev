@@ -13,8 +13,23 @@ const myFont = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Title',
-  description: 'Description',
+  metadataBase: 'https://seym.dev',
+  applicationName: 'seym.dev',
+  authors: [
+    {
+      name: 'Konstantin Seym',
+      url: 'https://seym.dev',
+    },
+  ],
+  creator: 'Konstantin Seym',
+  publisher: 'seym.dev',
+  title: {
+    default: 'seym.dev — Web Design & Development',
+    template: '%s — seym.dev',
+  },
+  description:
+    'Independent web studio creating distinctive, fast and reliable websites and web applications — from design and frontend to backend and deployment.',
+
   appleWebApp: {
     title: 'seym.dev',
   },
