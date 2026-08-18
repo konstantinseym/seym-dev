@@ -7,6 +7,9 @@
   --color-palette-carbon: #1e1e1e;
 
   --tracking-custom: 0.1em;
+
+  --default-transition-timing-function: ease-in-out;
+  --default-transition-duration: 300ms;
 }
 
 @layer base {
@@ -16,5 +19,9 @@
     @variant lg {
       @apply text-base;
     }
+  }
+
+  a {
+    @apply hover:text-palette-denim transition;
   }
 }

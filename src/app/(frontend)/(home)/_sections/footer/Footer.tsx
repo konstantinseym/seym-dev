@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import MailIcon from '../../_components/icons/MailIcon'
+
 import { getSiteSettings } from '@/data/getSiteSettings'
 
 export default async function Footer() {
@@ -11,9 +13,16 @@ export default async function Footer() {
         {siteSettings.contactThanksLabel}
       </span>
       <div className="text-palette-eggshell/50 tracking-custom flex flex-col items-center gap-4 pt-12 pb-6 uppercase">
-        <a href={'mailto:' + siteSettings.ownerEmail} target="_blank" rel="noopener noreferrer">
+        <a
+          href={'mailto:' + siteSettings.ownerEmail}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex gap-2"
+        >
+          <MailIcon width={16} />
           {siteSettings.ownerEmail}
         </a>
+
         <div className="border-palette-eggshell/50 w-xs border-b" />
         <Link href="/privacy-policy">{siteSettings.policyLabel}</Link>
       </div>

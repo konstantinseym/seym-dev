@@ -3,6 +3,9 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 
+import BackButton from './_components/BackButton'
+import Button from '../../_components/Button'
+
 import { getSiteSettings } from '@/data/getSiteSettings'
 import { getProject } from '@/data/getProject'
 
@@ -101,11 +104,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </header>
       <main className="bg-palette-eggshell text-palette-space flex w-full flex-col items-center rounded-t-2xl py-9">
         <div className="flex max-w-7xl flex-col items-end text-right">
+          <div className="ml-3 self-start">
+            <BackButton />
+          </div>
           <h2 className="tracking-custom mr-3 text-base uppercase lg:text-lg">
             / 01 {siteSettings.projectOverviewLabel}
           </h2>
           <div className="border-palette-space w-3/4 border-b" />
           <p className="mr-3 max-w-17/20 py-2 text-sm leading-6 lg:text-base">{project.overview}</p>
+          <div className="self-center py-4">
+            <Button>live demo</Button>
+          </div>
           <div className="mx-9 my-9 max-w-5xl self-center bg-white px-3 py-2">
             <Image
               src={primaryImage.url}

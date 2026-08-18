@@ -30,6 +30,11 @@ export const Contacts: GlobalConfig = {
           type: 'text',
           required: true,
         },
+        {
+          name: 'url',
+          type: 'text',
+          required: true,
+        },
       ],
     },
   ],

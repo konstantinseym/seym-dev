@@ -423,6 +423,7 @@ export interface Contact {
   items: {
     label: string;
     value: string;
+    url: string;
     id?: string | null;
   }[];
   updatedAt?: string | null;
@@ -492,6 +493,7 @@ export interface ContactsSelect<T extends boolean = true> {
     | {
         label?: T;
         value?: T;
+        url?: T;
         id?: T;
       };
   updatedAt?: T;
