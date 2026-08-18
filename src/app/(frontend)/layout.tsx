@@ -15,6 +15,9 @@ const myFont = localFont({
 export const metadata: Metadata = {
   title: 'Title',
   description: 'Description',
+  appleWebApp: {
+    title: 'seym.dev',
+  },
 }
 
 type FrontendLayoutProps = {
