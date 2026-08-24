@@ -111,7 +111,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             / 01 {siteSettings.projectOverviewLabel}
           </h2>
           <div className="border-palette-space w-3/4 border-b" />
-          <p className="mr-3 max-w-17/20 py-2 text-sm leading-6 lg:text-base">{project.overview}</p>
+          <p className="mr-3 max-w-17/20 py-2 leading-6">{project.overview}</p>
           <div className="self-center py-4">
             <Button>live demo</Button>
           </div>

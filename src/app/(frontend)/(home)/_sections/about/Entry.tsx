@@ -60,10 +60,7 @@ export default function Entry({ index, entry }: EntryProps) {
         / {String(index + 1).padStart(2, '0')} {entry.title}
       </h3>
       <motion.div variants={lineVariants} className="border-palette-space w-3/4 border-b" />
-      <motion.p
-        variants={paragraphVariants}
-        className="ml-3 max-w-17/20 pt-4 pb-6 text-sm leading-6 lg:text-base"
-      >
+      <motion.p variants={paragraphVariants} className="ml-3 max-w-17/20 pt-4 pb-6 leading-6">
         {entry.value}
       </motion.p>
     </motion.div>

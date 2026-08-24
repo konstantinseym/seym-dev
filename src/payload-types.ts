@@ -437,6 +437,8 @@ export interface SiteSetting {
   id: number;
   siteLogoText: string;
   siteLogoSubtitle: string;
+  skipToNavLabel: string;
+  skipToContactLabel: string;
   heroScrollLabel: string;
   heroIntroLabel: string;
   heroIntroDescription: string;
@@ -507,6 +509,8 @@ export interface ContactsSelect<T extends boolean = true> {
 export interface SiteSettingsSelect<T extends boolean = true> {
   siteLogoText?: T;
   siteLogoSubtitle?: T;
+  skipToNavLabel?: T;
+  skipToContactLabel?: T;
   heroScrollLabel?: T;
   heroIntroLabel?: T;
   heroIntroDescription?: T;

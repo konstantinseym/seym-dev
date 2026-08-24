@@ -193,8 +193,8 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
             style={{ y: skipBtnY }}
             className="absolute top-2/3 flex gap-12"
           >
-            <Button onClick={skipHeroAnimation}>skip intro</Button>
-            <Button onClick={skipToLeadForm}>contact me</Button>
+            <Button onClick={skipHeroAnimation}>{siteSettings.skipToNavLabel}</Button>
+            <Button onClick={skipToLeadForm}>{siteSettings.skipToContactLabel}</Button>
           </motion.div>
 
           <motion.div
@@ -219,7 +219,7 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
           <div className="relative flex w-full max-w-4xl items-center justify-center">
             <div className="tracking-custom relative grid w-full place-items-center px-12 text-center">
               <motion.span
-                className="tracking-custom col-start-1 row-start-1 text-4xl uppercase lg:text-5xl"
+                className="col-start-1 row-start-1 text-4xl uppercase lg:text-5xl"
                 style={{ opacity: firstTextOpacity, y: firstTextY }}
               >
                 {siteSettings.heroIntroLabel}

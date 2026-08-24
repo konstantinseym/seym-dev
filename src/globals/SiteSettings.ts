@@ -30,6 +30,16 @@ export const SiteSettings: GlobalConfig = {
           label: 'Hero',
           fields: [
             {
+              name: 'skipToNavLabel',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'skipToContactLabel',
+              type: 'text',
+              required: true,
+            },
+            {
               name: 'heroScrollLabel',
               type: 'text',
               required: true,
