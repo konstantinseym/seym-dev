@@ -139,7 +139,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               </div>
             ))}
           </div>
-          <div className="mx-6 my-9 max-w-5xl self-center bg-white px-3 py-2">
+          <div className="mx-9 my-9 max-w-5xl self-center bg-white px-3 py-2">
             <Image
               src={secondaryImage.url}
               alt={secondaryImage.alt}

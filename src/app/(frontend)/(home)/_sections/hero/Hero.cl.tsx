@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import { useLenis } from 'lenis/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -14,6 +15,7 @@ import {
 
 import { SLOW_TRANSITION } from '@/lib/motion.config'
 import ScrollHint from './ScrollHint.cl'
+import Button from '../../../_components/Button'
 import heroBackground from '@/assets/images/hero-background.avif'
 import type { SiteSetting } from '@/payload-types'
 
@@ -22,7 +24,9 @@ type HeroClientProps = {
 }
 
 export default function HeroClient({ siteSettings }: HeroClientProps) {
-  const pageRef = useRef(null)
+  const pageRef = useRef<HTMLDivElement>(null)
+
+  const lenis = useLenis()
 
   const logoLetters = siteSettings.siteLogoText.split('')
 
@@ -30,6 +34,35 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
     target: pageRef,
     offset: ['start start', 'end end'],
   })
+
+  function skipHeroAnimation() {
+    const page = pageRef.current
+
+    if (!page || !lenis) return
+
+    const scrollRange = page.offsetHeight - window.innerHeight
+
+    lenis.scrollTo(scrollRange * 0.9)
+  }
+
+  function skipToLeadForm() {
+    const contactSection = document.getElementById('contact')
+    const contactInput = document.getElementById('user-contact') as HTMLInputElement | null
+
+    if (!contactSection) return
+
+    if (!lenis) {
+      contactSection.scrollIntoView()
+      contactInput?.focus({ preventScroll: true })
+      return
+    }
+
+    lenis.scrollTo(contactSection, {
+      onComplete: () => {
+        contactInput?.focus({ preventScroll: true })
+      },
+    })
+  }
 
   const bgY = useTransform(scrollYProgress, [0, 1], [0, -64])
 
@@ -53,6 +86,7 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
 
   const logoY = useTransform(scrollYProgress, [0, 0.2, 1], [0, -64, -64])
   const subtitleY = useTransform(scrollYProgress, [0, 0.2, 1], [0, 64, 64])
+  const skipBtnY = useTransform(scrollYProgress, [0, 0.2, 1], [0, 32, 32])
   const navHintY = useTransform(scrollYProgress, [0, 0.8, 0.9, 1], [0, 0, -16, -16])
 
   const firstTextOpacity = useTransform(scrollYProgress, [0.2, 0.25, 0.35, 0.4], [0, 1, 1, 0])
@@ -147,6 +181,20 @@ export default function HeroClient({ siteSettings }: HeroClientProps) {
             <h1 className="text-palette-denim tracking-custom text-base leading-4 font-medium lg:text-xl lg:leading-5">
               {siteSettings.siteLogoSubtitle}
             </h1>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ...SLOW_TRANSITION,
+              delay: 3.5,
+            }}
+            style={{ y: skipBtnY }}
+            className="absolute top-2/3 flex gap-12"
+          >
+            <Button onClick={skipHeroAnimation}>skip intro</Button>
+            <Button onClick={skipToLeadForm}>contact me</Button>
           </motion.div>
 
           <motion.div
