@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 
 import 'lenis/dist/lenis.css'
@@ -11,6 +11,10 @@ const myFont = localFont({
   src: '../../assets/fonts/Montserrat-VariableFont_wght.ttf',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  themeColor: '#1d2d44',
+}
 
 export const metadata: Metadata = {
   metadataBase: 'https://seym.dev',

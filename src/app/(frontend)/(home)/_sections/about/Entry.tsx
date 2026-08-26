@@ -35,15 +35,9 @@ export default function Entry({ index, entry }: EntryProps) {
   const paragraphVariants = {
     hidden: {
       opacity: 0,
-      y: 16,
-      filter: 'blur(6px)',
-      clipPath: 'inset(0 0 100% 0)',
     },
     visible: {
       opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      clipPath: 'inset(0 0 0% 0)',
       transition: SLOW_TRANSITION,
     },
   } satisfies Variants
