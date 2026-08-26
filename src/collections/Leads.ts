@@ -4,9 +4,13 @@ const isAdmin = ({ req }: { req: { user: unknown } }) => Boolean(req.user)
 
 export const Leads: CollectionConfig = {
   slug: 'leads',
+  labels: {
+    singular: 'Заявка',
+    plural: 'Заявки',
+  },
 
   admin: {
-    group: 'Inbox',
+    group: 'Входящие',
     useAsTitle: 'contact',
     defaultColumns: ['contact', 'isRead', 'createdAt'],
   },
@@ -21,6 +25,7 @@ export const Leads: CollectionConfig = {
   fields: [
     {
       name: 'contact',
+      label: 'Контактные данные',
       type: 'text',
       required: true,
       minLength: 2,
@@ -28,6 +33,7 @@ export const Leads: CollectionConfig = {
     },
     {
       name: 'isRead',
+      label: 'Прочитано',
       type: 'checkbox',
       defaultValue: false,
       admin: {

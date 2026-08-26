@@ -2,7 +2,8 @@ import { GlobalConfig } from 'payload'
 
 export const About: GlobalConfig = {
   slug: 'about',
-  admin: { group: 'Site' },
+  label: 'Обо мне',
+  admin: { group: 'Сайт' },
   access: {
     read: () => true,
     update: ({ req }) => Boolean(req.user),
@@ -10,6 +11,7 @@ export const About: GlobalConfig = {
   fields: [
     {
       name: 'portrait',
+      label: 'Портрет',
       type: 'upload',
       relationTo: 'media',
       required: true,
@@ -22,23 +24,26 @@ export const About: GlobalConfig = {
     },
     {
       name: 'sections',
+      label: 'Разделы',
       type: 'array',
       required: true,
       minRows: 1,
 
       labels: {
-        singular: 'Section',
-        plural: 'Sections',
+        singular: 'Раздел',
+        plural: 'Разделы',
       },
 
       fields: [
         {
           name: 'title',
+          label: 'Заголовок',
           type: 'text',
           required: true,
         },
         {
           name: 'value',
+          label: 'Текст',
           type: 'textarea',
           required: true,
         },

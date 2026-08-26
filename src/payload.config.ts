@@ -4,6 +4,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { ru } from '@payloadcms/translations/languages/ru'
 
 import { About } from './globals/About'
 import { Contacts } from './globals/Contacts'
@@ -18,6 +19,10 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 export default buildConfig({
+  i18n: {
+    supportedLanguages: { ru },
+    fallbackLanguage: 'ru',
+  },
   admin: {
     user: Users.slug,
     importMap: {

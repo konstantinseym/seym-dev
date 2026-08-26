@@ -2,8 +2,12 @@ import { CollectionConfig } from 'payload'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
+  labels: {
+    singular: 'Проект',
+    plural: 'Проекты',
+  },
   admin: {
-    group: 'Content',
+    group: 'Контент',
     useAsTitle: 'name',
     defaultColumns: ['name', 'slug', 'order', 'updatedAt'],
   },
@@ -16,11 +20,13 @@ export const Projects: CollectionConfig = {
   fields: [
     {
       name: 'name',
+      label: 'Название',
       type: 'text',
       required: true,
     },
     {
       name: 'slug',
+      label: 'Адрес страницы',
       type: 'text',
       required: true,
       unique: true,
@@ -31,6 +37,7 @@ export const Projects: CollectionConfig = {
     },
     {
       name: 'order',
+      label: 'Порядок отображения',
       type: 'number',
       required: true,
       min: 1,
@@ -41,11 +48,13 @@ export const Projects: CollectionConfig = {
     },
     {
       name: 'description',
+      label: 'Краткое описание',
       type: 'textarea',
       required: true,
     },
     {
       name: 'primaryImage',
+      label: 'Основное изображение',
       type: 'upload',
       relationTo: 'media',
       required: true,
@@ -57,6 +66,7 @@ export const Projects: CollectionConfig = {
     },
     {
       name: 'secondaryImage',
+      label: 'Дополнительное изображение',
       type: 'upload',
       relationTo: 'media',
       required: true,
@@ -68,21 +78,24 @@ export const Projects: CollectionConfig = {
     },
     {
       name: 'overview',
+      label: 'Описание проекта',
       type: 'textarea',
       required: true,
     },
     {
       name: 'stack',
+      label: 'Технологии',
       type: 'array',
       required: true,
       minRows: 1,
       labels: {
-        singular: 'Tech',
-        plural: 'Techs',
+        singular: 'Технология',
+        plural: 'Технологии',
       },
       fields: [
         {
           name: 'value',
+          label: 'Название технологии',
           type: 'text',
           required: true,
         },
@@ -90,6 +103,7 @@ export const Projects: CollectionConfig = {
     },
     {
       name: 'demoUrl',
+      label: 'Ссылка на демоверсию',
       type: 'text',
     },
   ],
