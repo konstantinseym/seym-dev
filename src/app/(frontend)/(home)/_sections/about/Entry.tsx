@@ -49,11 +49,12 @@ export default function Entry({ index, entry }: EntryProps) {
   } satisfies Variants
 
   return (
-    <motion.div
+    <motion.section
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.35 }}
       variants={sectionVariants}
+      aria-label={entry.title}
       className="flex max-w-7xl flex-col"
     >
       <h3 className="tracking-custom ml-3 text-base uppercase lg:text-lg">
@@ -63,6 +64,6 @@ export default function Entry({ index, entry }: EntryProps) {
       <motion.p variants={paragraphVariants} className="ml-3 max-w-17/20 pt-4 pb-6 leading-6">
         {entry.value}
       </motion.p>
-    </motion.div>
+    </motion.section>
   )
 }

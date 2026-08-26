@@ -14,6 +14,7 @@ export default async function Contact() {
         contactTitle={siteSettings.contactTitle}
         contactFormLabel={siteSettings.contactFormLabel}
         contactInputPlaceholder={siteSettings.contactInputPlaceholder}
+        contactFormSubmitLabel={siteSettings.contactFormSubmitLabel}
       />
       <ContactList contacts={contacts.items} />
     </SectionLayout>

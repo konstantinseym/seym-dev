@@ -9,19 +9,16 @@ export default async function Footer() {
 
   return (
     <footer className="text-palette-eggshell flex flex-col">
-      <span className="-tracking-custom mt-12 text-6xl lg:text-8xl">
+      <p className="-tracking-custom mt-12 text-6xl lg:text-8xl">
         {siteSettings.contactThanksLabel}
-      </span>
+      </p>
       <div className="text-palette-eggshell/50 tracking-custom flex flex-col items-center gap-4 pt-12 pb-6 uppercase">
-        <a
-          href={'mailto:' + siteSettings.ownerEmail}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex gap-2"
-        >
-          <MailIcon width={16} />
-          {siteSettings.ownerEmail}
-        </a>
+        <address>
+          <a href={'mailto:' + siteSettings.ownerEmail} className="inline-flex gap-2">
+            <MailIcon width={16} />
+            {siteSettings.ownerEmail}
+          </a>
+        </address>
 
         <div className="border-palette-eggshell/50 w-xs border-b" />
         <Link href="/privacy-policy">{siteSettings.policyLabel}</Link>

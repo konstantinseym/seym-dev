@@ -88,5 +88,9 @@ export const Projects: CollectionConfig = {
         },
       ],
     },
+    {
+      name: 'demoUrl',
+      type: 'text',
+    },
   ],
 }

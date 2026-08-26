@@ -8,7 +8,7 @@ import './globals.css'
 import SmoothScroll from './_components/SmoothScroll'
 
 const myFont = localFont({
-  src: '../../assets/fonts/montserrat-latin-wght-normal.woff2',
+  src: '../../assets/fonts/Montserrat-VariableFont_wght.ttf',
   display: 'swap',
 })
 
@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   creator: 'Konstantin Seym',
   publisher: 'seym.dev',
   title: {
-    default: 'seym.dev — Web Design & Development',
+    default: 'seym.dev — создаю место в сети людям и бизнесу',
     template: '%s — seym.dev',
   },
   description:
-    'Independent web studio creating distinctive, fast and reliable websites and web applications — from design and frontend to backend and deployment.',
+    'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
 
   appleWebApp: {
     title: 'seym.dev',
@@ -41,7 +41,7 @@ type FrontendLayoutProps = {
 
 export default function FrontendLayout({ children }: FrontendLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body className={myFont.className}>
         <SmoothScroll>{children}</SmoothScroll>
       </body>

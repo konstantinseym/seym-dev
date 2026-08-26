@@ -85,6 +85,21 @@ export const SiteSettings: GlobalConfig = {
               required: true,
             },
             {
+              name: 'contactFormSubmitLabel',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'goBackButtonLabel',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'demoButtonLabel',
+              type: 'text',
+              required: true,
+            },
+            {
               name: 'projectOverviewLabel',
               type: 'text',
               required: true,

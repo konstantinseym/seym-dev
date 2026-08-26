@@ -16,7 +16,7 @@ export default function ScrollHint({ label }: ScrollHintProps) {
         duration: 0.66,
         repeatDelay: 3,
       }}
-      className="text-palette-denim tracking-custom absolute bottom-12 left-1/2 -translate-x-1/2 text-xs font-medium lg:text-sm"
+      className="text-palette-denim tracking-custom absolute bottom-18 left-1/2 -translate-x-1/2 text-xs font-medium lg:text-sm"
     >
       {label}
     </motion.span>

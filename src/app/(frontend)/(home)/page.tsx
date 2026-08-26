@@ -12,28 +12,28 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: 'seym.dev — Web Design & Development',
+    title: 'seym.dev — создаю место в сети людям и бизнесу',
     description:
-      'Independent web studio creating distinctive, fast and reliable websites and web applications — from design and frontend to backend and deployment.',
+      'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
     url: '/',
     siteName: 'seym.dev',
-    locale: 'en_US',
+    locale: 'ru_RU',
     type: 'website',
     images: [
       {
         url: '/social-preview.png',
         width: 1200,
         height: 630,
-        alt: 'seym.dev — Web Design & Development',
+        alt: 'seym.dev — создаю место в сети людям и бизнесу',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'seym.dev — Web Design & Development',
+    title: 'seym.dev — создаю место в сети людям и бизнесу',
     description:
-      'Independent web studio creating distinctive, fast and reliable websites and web applications — from design and frontend to backend and deployment.',
+      'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
     images: ['/social-preview.png'],
   },
 }
@@ -41,10 +41,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Projects />
-      <About />
-      <Contact />
+      <main>
+        <Hero />
+        <Projects />
+        <About />
+        <Contact />
+      </main>
       <Footer />
     </>
   )

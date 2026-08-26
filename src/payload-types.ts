@@ -192,6 +192,7 @@ export interface Project {
     value: string;
     id?: string | null;
   }[];
+  demoUrl?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -346,6 +347,7 @@ export interface ProjectsSelect<T extends boolean = true> {
         value?: T;
         id?: T;
       };
+  demoUrl?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -447,6 +449,9 @@ export interface SiteSetting {
   portfolioSectionTitle: string;
   aboutSectionTitle: string;
   contactSectionTitle: string;
+  contactFormSubmitLabel: string;
+  goBackButtonLabel: string;
+  demoButtonLabel: string;
   projectOverviewLabel: string;
   projectStackLabel: string;
   contactTitle: string;
@@ -464,7 +469,11 @@ export interface SiteSetting {
  */
 export interface PrivacyPolicy {
   id: number;
-  content: string;
+  content: {
+    header: string;
+    paragraph: string;
+    id?: string | null;
+  }[];
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -519,6 +528,9 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   portfolioSectionTitle?: T;
   aboutSectionTitle?: T;
   contactSectionTitle?: T;
+  contactFormSubmitLabel?: T;
+  goBackButtonLabel?: T;
+  demoButtonLabel?: T;
   projectOverviewLabel?: T;
   projectStackLabel?: T;
   contactTitle?: T;
@@ -536,7 +548,13 @@ export interface SiteSettingsSelect<T extends boolean = true> {
  * via the `definition` "privacy-policy_select".
  */
 export interface PrivacyPolicySelect<T extends boolean = true> {
-  content?: T;
+  content?:
+    | T
+    | {
+        header?: T;
+        paragraph?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

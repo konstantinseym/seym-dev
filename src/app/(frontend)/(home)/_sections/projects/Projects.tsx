@@ -11,9 +11,13 @@ export default async function Projects() {
 
   return (
     <SectionLayout id="portfolio" header={siteSettings.portfolioSectionTitle}>
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
+      <ul>
+        {projects.map((project) => (
+          <li key={project.id}>
+            <ProjectCard project={project} />
+          </li>
+        ))}
+      </ul>
     </SectionLayout>
   )
 }

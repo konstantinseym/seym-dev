@@ -2,7 +2,11 @@
 
 import { useRouter } from 'next/navigation'
 
-export default function BackButton() {
+type BackButtonProps = {
+  children: string
+}
+
+export default function BackButton({ children }: BackButtonProps) {
   const router = useRouter()
 
   return (
@@ -11,7 +15,7 @@ export default function BackButton() {
       onClick={() => router.back()}
       className="tracking-custom hover:text-palette-denim cursor-pointer text-base lowercase transition lg:text-lg"
     >
-      ← back
+      ← {children}
     </button>
   )
 }

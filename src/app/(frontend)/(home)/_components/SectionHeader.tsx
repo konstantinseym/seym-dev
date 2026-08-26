@@ -4,7 +4,7 @@ type SectionHeaderProps = {
 
 export default function SectionHeader({ label }: SectionHeaderProps) {
   return (
-    <h2 className="text-palette-eggshell tracking-custom px-9 pt-6 pb-9 text-5xl font-medium lowercase lg:text-7xl">
+    <h2 className="text-palette-eggshell tracking-custom px-9 pt-6 pb-9 text-5xl font-extralight uppercase lg:text-7xl">
       {label}
     </h2>
   )
