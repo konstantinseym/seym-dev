@@ -25,6 +25,21 @@ export default buildConfig({
   },
   admin: {
     user: Users.slug,
+    meta: {
+      titleSuffix: '- seym.dev CMS',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          url: '/admin-favicon.svg',
+        },
+      ],
+    },
+    components: {
+      graphics: {
+        Logo: '/components/AdminLogo#default',
+      },
+    },
     importMap: {
       baseDir: path.resolve(dirname),
     },
