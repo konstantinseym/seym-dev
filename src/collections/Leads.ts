@@ -16,7 +16,7 @@ export const Leads: CollectionConfig = {
   },
 
   access: {
-    create: () => true,
+    create: isAdmin,
     read: isAdmin,
     update: isAdmin,
     delete: isAdmin,
