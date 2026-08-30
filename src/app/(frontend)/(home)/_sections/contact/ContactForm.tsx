@@ -13,7 +13,11 @@ import type { SiteSetting } from '@/payload-types'
 
 type ContactFormProps = Pick<
   SiteSetting,
-  'contactTitle' | 'contactFormLabel' | 'contactInputPlaceholder' | 'contactFormSubmitLabel'
+  | 'contactTitle'
+  | 'contactFormLabel'
+  | 'contactInputPlaceholder'
+  | 'contactFormSubmitLabel'
+  | 'formThanksLabel'
 >
 
 const initialState: CreateLeadState = {
@@ -25,6 +29,7 @@ export default function ContactForm({
   contactFormLabel,
   contactInputPlaceholder,
   contactFormSubmitLabel,
+  formThanksLabel,
 }: ContactFormProps) {
   const [contactInput, setContactInput] = useState('')
 
@@ -88,7 +93,7 @@ export default function ContactForm({
           transition={SLOW_TRANSITION}
           className="flex min-h-64 w-full items-center justify-center"
         >
-          <p className="tracking-custom text-lg uppercase">спасибо, скоро отвечу!</p>
+          <p className="tracking-custom text-lg uppercase">{formThanksLabel}</p>
         </motion.div>
       )}
 

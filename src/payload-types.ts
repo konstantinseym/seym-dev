@@ -457,6 +457,7 @@ export interface SiteSetting {
   contactTitle: string;
   contactFormLabel: string;
   contactInputPlaceholder: string;
+  formThanksLabel: string;
   contactThanksLabel: string;
   ownerEmail: string;
   policyLabel: string;
@@ -536,6 +537,7 @@ export interface SiteSettingsSelect<T extends boolean = true> {
   contactTitle?: T;
   contactFormLabel?: T;
   contactInputPlaceholder?: T;
+  formThanksLabel?: T;
   contactThanksLabel?: T;
   ownerEmail?: T;
   policyLabel?: T;

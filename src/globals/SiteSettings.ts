@@ -151,6 +151,12 @@ export const SiteSettings: GlobalConfig = {
               required: true,
             },
             {
+              name: 'formThanksLabel',
+              label: 'Текст благодартности за заявку',
+              type: 'text',
+              required: true,
+            },
+            {
               name: 'contactThanksLabel',
               label: 'Текст благодарности в подвале',
               type: 'text',

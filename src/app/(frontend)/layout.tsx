@@ -1,4 +1,4 @@
-import localFont from 'next/font/local'
+import { Montserrat } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 
@@ -7,8 +7,8 @@ import './globals.css'
 
 import SmoothScroll from './_components/SmoothScroll'
 
-const myFont = localFont({
-  src: '../../assets/fonts/Montserrat-VariableFont_wght.ttf',
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
   display: 'swap',
 })
 
@@ -46,7 +46,7 @@ type FrontendLayoutProps = {
 export default function FrontendLayout({ children }: FrontendLayoutProps) {
   return (
     <html lang="ru">
-      <body className={myFont.className}>
+      <body className={montserrat.className}>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
