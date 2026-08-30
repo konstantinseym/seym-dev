@@ -8,20 +8,16 @@ import type { Project } from '@/payload-types'
 
 import { SLOW_TRANSITION } from '@/lib/motion.config'
 
-type ProjectCardData = Pick<
-  Project,
-  'id' | 'name' | 'slug' | 'description' | 'primaryImage' | 'order'
->
-
 type ProjectCardProps = {
-  project: ProjectCardData
+  project: Pick<Project, 'name' | 'slug' | 'description' | 'primaryImage' | 'order'>
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const image = typeof project.primaryImage === 'number' ? null : project.primaryImage
-
-  if (!image?.url || !image.width || !image.height) {
-    throw new Error(`Primary image is missing for project "${project.name}"`)
+  const image = project.primaryImage as {
+    url: string
+    alt: string
+    width: number
+    height: number
   }
 
   return (

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 
 import BackButton from './_components/BackButton'
 import PreviewLink from './_components/PreviewLink'
@@ -25,28 +24,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     notFound()
   }
 
-  const primaryImage = typeof project.primaryImage === 'number' ? null : project.primaryImage
   const socialTitle = project.name.toLocaleLowerCase() + ' - seym.dev'
   const projectUrl = `/projects/${project.slug}`
-
-  const socialImages =
-    primaryImage?.url && primaryImage.width && primaryImage.height
-      ? [
-          {
-            url: primaryImage.url,
-            width: primaryImage.width,
-            height: primaryImage.height,
-            alt: primaryImage.alt,
-          },
-        ]
-      : [
-          {
-            url: '/social-preview.png',
-            width: 1200,
-            height: 630,
-            alt: 'seym.dev — создаю место в сети людям и бизнесу',
-          },
-        ]
+  const socialImage = project.primaryImage as {
+    url: string
+    alt: string
+    width: number
+    height: number
+  }
 
   return {
     title: {
@@ -63,13 +48,13 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       siteName: 'seym.dev',
       locale: 'ru_RU',
       type: 'website',
-      images: socialImages,
+      images: socialImage,
     },
     twitter: {
       card: 'summary_large_image',
       title: socialTitle,
       description: project.description,
-      images: socialImages,
+      images: socialImage,
     },
   }
 }
@@ -83,15 +68,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     notFound()
   }
 
-  const primaryImage = typeof project.primaryImage === 'number' ? null : project.primaryImage
-  const secondaryImage = typeof project.secondaryImage === 'number' ? null : project.secondaryImage
-
-  if (!primaryImage?.url || !primaryImage.width || !primaryImage.height) {
-    throw new Error(`Primary image is missing for project "${project.name}"`)
+  const primaryImage = project.primaryImage as {
+    url: string
+    alt: string
+    width: number
+    height: number
   }
-
-  if (!secondaryImage?.url || !secondaryImage.width || !secondaryImage.height) {
-    throw new Error(`Secondary image is missing for project "${project.name}"`)
+  const secondaryImage = project.secondaryImage as {
+    url: string
+    alt: string
+    width: number
+    height: number
   }
 
   return (
@@ -117,22 +104,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <ProjectOverview
             header={siteSettings.projectOverviewLabel}
             paragraph={project.overview}
-            image={{
-              url: primaryImage.url,
-              alt: primaryImage.alt,
-              width: primaryImage.width,
-              height: primaryImage.height,
-            }}
+            image={primaryImage}
           />
           <ProjectStack
             header={siteSettings.projectStackLabel}
             content={project.stack}
-            image={{
-              url: secondaryImage.url,
-              alt: secondaryImage.alt,
-              width: secondaryImage.width,
-              height: secondaryImage.height,
-            }}
+            image={secondaryImage}
           />
         </div>
       </article>

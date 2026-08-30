@@ -9,10 +9,11 @@ export default async function About() {
   const siteSettings = await getSiteSettings()
   const about = await getAbout()
 
-  const portrait = typeof about.portrait === 'number' ? null : about.portrait
-
-  if (!portrait?.url || !portrait.width || !portrait.height) {
-    throw new Error('Portrait image is missing')
+  const portrait = about.portrait as {
+    url: string
+    alt: string
+    width: number
+    height: number
   }
 
   return (
