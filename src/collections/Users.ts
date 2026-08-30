@@ -9,7 +9,12 @@ export const Users: CollectionConfig = {
   admin: {
     useAsTitle: 'email',
   },
-  auth: true,
+  auth: {
+    forgotPassword: {
+      expiration: 60 * 60 * 1000,
+      generateEmailSubject: () => 'Восстановление пароля — seym.dev CMS',
+    },
+  },
   fields: [
     // Email added by default
     // Add more fields as needed

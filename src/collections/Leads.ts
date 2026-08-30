@@ -22,6 +22,43 @@ export const Leads: CollectionConfig = {
     delete: isAdmin,
   },
 
+  hooks: {
+    afterChange: [
+      async ({ doc, operation, req }) => {
+        if (operation !== 'create') {
+          return
+        }
+
+        const recipient = process.env.RESEND_TO_EMAIL
+
+        if (!recipient) {
+          req.payload.logger.warn('Lead notification skipped: RESEND_TO_EMAIL is not configured')
+          return
+        }
+
+        try {
+          await req.payload.sendEmail({
+            to: recipient,
+            subject: 'Новая заявка — seym.dev',
+            text: [
+              'На сайте seym.dev появилась новая заявка.',
+              '',
+              `Контакт: ${doc.contact}`,
+              `ID заявки: ${doc.id}`,
+              `Время: ${doc.createdAt}`,
+            ].join('\n'),
+          })
+        } catch (error) {
+          req.payload.logger.error({
+            err: error,
+            leadID: doc.id,
+            msg: 'Failed to send lead notification email',
+          })
+        }
+      },
+    ],
+  },
+
   fields: [
     {
       name: 'contact',
