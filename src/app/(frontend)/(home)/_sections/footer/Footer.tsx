@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import MailIcon from '../../_components/icons/MailIcon'
+import MailIcon from '@/app/(frontend)/_components/icons/MailIcon'
 
 import { getSiteSettings } from '@/data/getSiteSettings'
 

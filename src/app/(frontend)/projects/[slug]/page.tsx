@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
 import BackButton from './_components/BackButton'
+import PreviewLink from './_components/PreviewLink'
 import ProjectOverview from './_components/ProjectOverview'
 import ProjectStack from './_components/ProjectStack'
 
@@ -105,16 +106,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </header>
 
         <div className="bg-palette-eggshell text-palette-space flex w-full flex-col items-center rounded-t-2xl py-9">
-          <div className="flex w-full justify-around gap-8">
+          <div className="flex w-full justify-around gap-8 pt-8 pb-12">
             <BackButton>{siteSettings.goBackButtonLabel}</BackButton>
-
-            {project.demoUrl && (
-              <div className="self-center py-4">
-                <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                  {siteSettings.demoButtonLabel}
-                </Link>
-              </div>
-            )}
+            <div>
+              {project.demoUrl && (
+                <PreviewLink url={project.demoUrl}>{siteSettings.demoButtonLabel}</PreviewLink>
+              )}
+            </div>
           </div>
           <ProjectOverview
             header={siteSettings.projectOverviewLabel}

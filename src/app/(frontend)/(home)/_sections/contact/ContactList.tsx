@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from 'motion/react'
 
-import LinkIcon from '../../_components/icons/LinkIcon'
+import LinkIcon from '@/app/(frontend)/_components/icons/LinkIcon'
 
 import type { Contact } from '@/payload-types'
 

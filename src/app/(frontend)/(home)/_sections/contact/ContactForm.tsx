@@ -6,7 +6,7 @@ import { SLOW_TRANSITION } from '@/lib/motion.config'
 
 import Button from '@/app/(frontend)/_components/Button'
 import { createLead } from './actions'
-import SendIcon from '../../_components/icons/SendIcon'
+import SendIcon from '@/app/(frontend)/_components/icons/SendIcon'
 
 import type { CreateLeadState } from './actions'
 import type { SiteSetting } from '@/payload-types'
