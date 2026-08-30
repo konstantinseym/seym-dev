@@ -6,36 +6,45 @@ import About from './_sections/about/About'
 import Contact from './_sections/contact/Contact'
 import Footer from './_sections/footer/Footer'
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: '/',
-  },
+import { getSiteSettings } from '@/data/getSiteSettings'
 
-  openGraph: {
-    title: 'seym.dev — создаю место в сети людям и бизнесу',
-    description:
-      'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
-    url: '/',
-    siteName: 'seym.dev',
-    locale: 'ru_RU',
-    type: 'website',
-    images: [
-      {
-        url: '/social-preview.png',
-        width: 1200,
-        height: 630,
-        alt: 'seym.dev — создаю место в сети людям и бизнесу',
-      },
-    ],
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  const siteSettings = await getSiteSettings()
+  const socialTitle = `${siteSettings.siteLogoText} — ${siteSettings.siteLogoSubtitle}`
 
-  twitter: {
-    card: 'summary_large_image',
-    title: 'seym.dev — создаю место в сети людям и бизнесу',
-    description:
-      'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
-    images: ['/social-preview.png'],
-  },
+  return {
+    title: {
+      absolute: socialTitle,
+    },
+    alternates: {
+      canonical: '/',
+    },
+    openGraph: {
+      title: socialTitle,
+      description:
+        'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
+      url: '/',
+      siteName: siteSettings.siteLogoText,
+      locale: 'ru_RU',
+      type: 'website',
+      images: [
+        {
+          url: '/social-preview.png',
+          width: 1200,
+          height: 630,
+          alt: socialTitle,
+        },
+      ],
+    },
+
+    twitter: {
+      card: 'summary_large_image',
+      title: socialTitle,
+      description:
+        'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
+      images: ['/social-preview.png'],
+    },
+  }
 }
 
 export default function HomePage() {

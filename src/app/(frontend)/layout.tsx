@@ -7,6 +7,8 @@ import './globals.css'
 
 import SmoothScroll from './_components/SmoothScroll'
 
+import { getSiteSettings } from '@/data/getSiteSettings'
+
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
@@ -16,27 +18,30 @@ export const viewport: Viewport = {
   themeColor: '#1d2d44',
 }
 
-export const metadata: Metadata = {
-  metadataBase: 'https://seym.dev',
-  applicationName: 'seym.dev',
-  authors: [
-    {
-      name: 'Konstantin Seym',
-      url: 'https://seym.dev',
-    },
-  ],
-  creator: 'Konstantin Seym',
-  publisher: 'seym.dev',
-  title: {
-    default: 'seym.dev — создаю место в сети людям и бизнесу',
-    template: '%s — seym.dev',
-  },
-  description:
-    'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
+export async function generateMetadata(): Promise<Metadata> {
+  const siteSettings = await getSiteSettings()
 
-  appleWebApp: {
-    title: 'seym.dev',
-  },
+  return {
+    metadataBase: new URL('https://seym.dev'),
+    applicationName: siteSettings.siteLogoText,
+    authors: [
+      {
+        name: 'Konstantin Seym',
+        url: 'https://seym.dev',
+      },
+    ],
+    creator: 'Konstantin Seym',
+    publisher: siteSettings.siteLogoText,
+    title: {
+      default: `${siteSettings.siteLogoText} — ${siteSettings.siteLogoSubtitle}`,
+      template: `%s — ${siteSettings.siteLogoText}`,
+    },
+    description:
+      'Независимая веб-студия: создаю выразительные, быстрые и надёжные сайты и веб-приложения — от дизайна и фронтенда до бэкенда и развёртывания.',
+    appleWebApp: {
+      title: siteSettings.siteLogoText,
+    },
+  }
 }
 
 type FrontendLayoutProps = {
