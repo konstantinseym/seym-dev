@@ -1,4 +1,5 @@
 import { GlobalConfig } from 'payload'
+import { revalidateContacts } from '@/hooks/revalidateContent'
 
 export const Contacts: GlobalConfig = {
   slug: 'contacts',
@@ -7,6 +8,9 @@ export const Contacts: GlobalConfig = {
   access: {
     read: () => true,
     update: ({ req }) => Boolean(req.user),
+  },
+  hooks: {
+    afterChange: [revalidateContacts],
   },
   fields: [
     {

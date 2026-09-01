@@ -1,4 +1,5 @@
 import { GlobalConfig } from 'payload'
+import { revalidateAbout } from '@/hooks/revalidateContent'
 
 export const About: GlobalConfig = {
   slug: 'about',
@@ -7,6 +8,9 @@ export const About: GlobalConfig = {
   access: {
     read: () => true,
     update: ({ req }) => Boolean(req.user),
+  },
+  hooks: {
+    afterChange: [revalidateAbout],
   },
   fields: [
     {

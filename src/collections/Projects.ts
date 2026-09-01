@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload'
+import { revalidateDeletedProject, revalidateProject } from '@/hooks/revalidateContent'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
@@ -16,6 +17,10 @@ export const Projects: CollectionConfig = {
     create: ({ req }) => Boolean(req.user),
     update: ({ req }) => Boolean(req.user),
     delete: ({ req }) => Boolean(req.user),
+  },
+  hooks: {
+    afterChange: [revalidateProject],
+    afterDelete: [revalidateDeletedProject],
   },
   fields: [
     {
